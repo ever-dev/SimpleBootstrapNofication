@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ever-Dev | AppLand Test</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="./vendor/fontawesome-free-5.14.0-web/css/all.css"
+    />
+    <!--load all styles -->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <div id="app" class="container-fluid">
+      <div class="header">
+        <a
+          class="notification"
+          :class="{'open': isNotificationOpen}"
+          @click="toggleNotification()"
+        >
+          <i class="fa fa-bell"></i>
+          <span class="badge badge-danger">{{notifications.length}}</span>
+        </a>
+      </div>
+      <!-- Begin Notification Container -->
+      <aside class="notification-container" v-if="isNotificationOpen">
+        <h3 class="notification-header">Notifications</h3>
+        <ul class="notification-list">
+          <li
+            v-for="(notification, key) in notifications"
+            :key="key"
+            class="notification-item"
+            :class="{'selected': selectedItem === key}"
+            @click="onSelectItem(key)"
+          >
+            <p class="notification-title">{{notification.title}}</p>
+            <p class="notification-content">{{notification.content}}</p>
+            <p class="notification-info">
+              {{notification.date}} by {{notification.by}}
+            </p>
+
+            <a class="delete-notification" @click="onRemoveItem">
+              <span> &times; </span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <!-- End Notification Container -->
+    </div>
+
+    <!-- Begin Scripts -->
+    <!-- JS, Popper.js, and jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Vue Integration -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./assets/js/index.js"></script>
+    <!-- End Scripts -->
+  </body>
+</html>

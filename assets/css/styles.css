@@ -1,0 +1,108 @@
+.container-fluid {
+  background-color: #242c41;
+  min-height: 100vh;
+  padding: 30px 0;
+  margin: 0;
+}
+
+.header {
+  padding: 20px;
+}
+
+.notification .fa {
+  color: white;
+}
+.notification.open .fa {
+  color: #4362b1;
+}
+
+.badge {
+  border-radius: 50%;
+}
+
+.notification-container {
+  background-color: black;
+  color: white;
+
+  display: inline-block;
+}
+
+.notification-header {
+  padding-left: 30px;
+  font-size: 20px;
+  line-height: 45px;
+}
+
+.notification-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.notification-item {
+  padding: 16px 30px;
+  border-top: 1px solid #252629;
+
+  position: relative;
+}
+
+.notification-title {
+  width: 270px;
+  margin-bottom: 1em;
+
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+.notification-content {
+  width: 300px;
+  color: #808b98;
+  margin-bottom: 1em;
+
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.notification-info {
+  color: #808b98;
+  opacity: 0.4;
+
+  font-size: 14px;
+  line-height: 20px;
+
+  margin-bottom: 0;
+}
+
+.delete-notification {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+
+  background-color: rgba(225, 225, 225, 0.2);
+  cursor: pointer;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-notification span {
+  color: white;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.notification-item.selected {
+  background-color: #4362b1;
+}
+.notification-item.selected .delete-notification {
+  display: flex;
+}
+.notification-item:not(.selected) .delete-notification {
+  display: none;
+}
